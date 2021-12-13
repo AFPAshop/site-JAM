@@ -1,14 +1,12 @@
-// Affichage des 2 templates pour choix commerçant
-<template>
- <main>
-    <div id="t1" class="temp">Template 1</div>
-    <div id="t2" class="temp">Template 2</div>
-  </main>
-</template>
-
-// CSS pour affichage templates
-<style scoped>
- @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;800&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=Zj_Ooq8sIn402FKW-bDkz2QcTPjOqr9FO7jFaXX02wKTzMobXIfPeh9xabGLESE_E5NUfBaTPjpGn35f4UaifSxVMTneFSxIF-r9HtEnx61uPemFwJcfQKMHiO5GXyZBd8UVYtcFP5AtQHtLbFEGmg" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jZG4uZGlzY29yZGFwcC5jb20vYXR0YWNobWVudHMvOTE5ODkxNDk2MTQzMDYxMDczLzkxOTkwMzk1NzIxNDcyNDExNi9wYWdlTG9naW4uaHRtbA"/><style>
+                 
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;800&display=swap');
         *{
             margin: 0;
             padding: 0;
@@ -53,17 +51,7 @@
             font-size: 2em;
             inset: 50% auto auto 200px;
         }
-        #header h1 span{
-            color: #fff;
-            font-size: .2em;
-            text-align: center;
-            position: absolute;
-            inset: -50% auto auto 50%;
-            transform: translate(-50%,-50%);
-        }
-        #header.zzz h1 span{
-            opacity: 0;
-        }
+        
         #header h2{
             color: #fff;
             font-size: 2em;
@@ -75,16 +63,7 @@
             transform: translate(-50%,-50%);
             animation: scrll 1s infinite linear alternate;
         }
-        @keyframes scrll{
-            0%{
-                color: #fff6;
-            }
-            100%{
-                color: #fff;
-                text-shadow: 0 0 4px #fff;
-                transform: translate(-50%,calc(-50% + 20px)) scale(1.05);
-            }
-        }
+        
         #header.zzz h2{
             opacity: 0;
         }
@@ -136,6 +115,7 @@
                 0 0 4px #fff,
                 0 0 12px #fff;
             display: flex;
+            flex-direction :column;
             position: fixed;
             filter: grayscale(100%);
         }
@@ -146,14 +126,62 @@
             transform: scale(1.03);
             filter: contrast(110%);
         }
-        #t1{
-            background: url(https://cdn.dribbble.com/users/1049925/screenshots/10812791/media/e58b32a588ae119bd6b3b9caf7c9907d.png?compress=1&resize=400x300);
-            left: 150px;
-            top: 200px;
+        input::placeholder{
+            color: #0006;
+            transition: .2s;
         }
-        #t2{
-            background: url(https://i.pinimg.com/originals/3b/a2/06/3ba2062712ff2d323236d7e79d7b2d04.jpg);
-            right: 150px;
-            top: 200px;
+        input:focus::placeholder{
+            opacity: 0;
         }
-</style>
+        input:focus{
+            outline: none;
+            transform: scale(1.03);
+        }
+        input {margin: 12px;
+            background: transparent;
+            box-shadow:
+                4px 4px 8px #453F66,
+                -2px -2px 4px #453F6688;
+            border: none;
+            border-radius: 6px;
+            color: #000;
+            font-size: 0.6em;
+            caret-color: #090940;
+        }
+        
+        #login input[type=submit]{
+            width:25%;
+            margin: 0 auto;
+            margin-top:10%;
+    }
+    </style>
+    <title>Veuillez vous connecter</title>
+</head>
+<body>
+    <header id="header" class="zzz">
+        <h1>
+            AFPAShop
+        </h1>
+        
+        <nav>
+            <ul>
+                <li><a href="">Login</a></li>
+                <li><a href="">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+    <form id="login" class="temp">
+        
+        <label for="email">Adresse mail : </label>
+        <input type="email" name="email" id="email" placeholder="Adresse mail de connexion" required>
+        
+        <label for="password">Mot de passe : </label>
+        <input type="password" name="password" id="password" placeholder="Mot de passe de connexion" required>
+
+        <input type="submit" value="Valider">
+        
+    </form>
+</main>
+</body>
+</html>

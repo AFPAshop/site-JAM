@@ -1,14 +1,13 @@
-// Affichage des 2 templates pour choix commerçant
-<template>
- <main>
-    <div id="t1" class="temp">Template 1</div>
-    <div id="t2" class="temp">Template 2</div>
-  </main>
-</template>
-
-// CSS pour affichage templates
-<style scoped>
- @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;800&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;800&display=swap');
         *{
             margin: 0;
             padding: 0;
@@ -148,12 +147,44 @@
         }
         #t1{
             background: url(https://cdn.dribbble.com/users/1049925/screenshots/10812791/media/e58b32a588ae119bd6b3b9caf7c9907d.png?compress=1&resize=400x300);
-            left: 150px;
-            top: 200px;
+            left: 100px;
         }
         #t2{
             background: url(https://i.pinimg.com/originals/3b/a2/06/3ba2062712ff2d323236d7e79d7b2d04.jpg);
-            right: 150px;
-            top: 200px;
+            right: 100px;
         }
-</style>
+    </style>
+</head>
+<body>
+    <header id="header">
+        <h1>
+            AFPAShop
+            <span>Créateur de site web de père en fils</span>
+        </h1>
+        <h2>
+            Créer votre site par ici
+            <br>
+            <span class="bi bi-chevron-compact-down"></span>
+        </h2>
+        <nav>
+            <ul>
+                <li><a href="">Login</a></li>
+                <li><a href="">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="t1" class="temp">Template 1</div>
+        <div id="t2" class="temp">Template 2</div>
+    </main>
+    <script>
+        let header=document.getElementById("header")
+        window.addEventListener("scroll",function(){
+            header.classList.toggle("zzz",window.scrollY>0)
+        })
+        header.addEventListener("click",function(){
+            header.classList.toggle("zzz")
+        })
+    </script>
+</body>
+</html>
