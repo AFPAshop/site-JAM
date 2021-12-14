@@ -8,8 +8,12 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+<<<<<<< HEAD
     "mysql": "^2.18.1",
     "vue": "^3.0.0",
+=======
+    "vue": "^3.2.26",
+>>>>>>> fb2b03ce9bffcddf964dc95c2d8929a2db467126
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
   },
