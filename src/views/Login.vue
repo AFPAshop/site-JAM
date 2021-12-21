@@ -1,104 +1,135 @@
 <template>
-  <main>
-    <form id="login" class="temp">
-      <label for="email">Adresse mail : </label>
-      <input
-        type="email"
-        name="email"
-        id="email"
-        placeholder="Adresse mail de connexion"
-        required
-      />
+  <section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card bg-dark text-white" style="border-radius: 1rem">
+            <div class="card-body p-5 text-center">
+              <div class="mb-md-0 mt-md-4 pb-1">
+                <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                <p class="text-white-50 mb-5">
+                  Entrer votre login et votre mot de passe !
+                </p>
 
-      <label for="password">Mot de passe : </label>
-      <input
-        type="password"
-        name="password"
-        id="password"
-        placeholder="Mot de passe de connexion"
-        required
-      />
+                <div class="form-outline form-white mb-4">
+                  <input
+                    type="email"
+                    id="typeEmailX"
+                    class="form-control form-control-lg"
+                  />
+                  <label class="form-label" for="typeEmailX">Email</label>
+                </div>
+                <div class="form-outline form-white mb-4">
+                  <input
+                    type="password"
+                    id="typePasswordX"
+                    class="form-control form-control-lg"
+                  />
 
-      <input type="submit" value="Valider" />
-    </form>
-  </main>
+                  <label class="form-label" for="typePasswordX"
+                    >Mot de passe
+                  </label>
+                </div>
+                <span
+                    ><div class="password-icon">
+                      <i
+                        class="bi bi-eye-fill"
+                        id="eye"
+                        v-on:click="changer()"
+                      ></i></div
+                  ></span>
+
+                <p class="small mb-5 pb-lg-2">
+                  <a class="text-white-50" href="#!">Mot de passe oublié ?</a>
+                </p>
+                <button class="btn btn-outline-light btn-lg px-5" type="submit">
+                  Login
+                </button>
+                <div
+                  class="d-flex justify-content-center text-center mt-4 pt-1"
+                >
+                  <a href="#!" class="text-white">
+                    <i class="fab fa-facebook-f fa-lg"></i>
+                  </a>
+                  <a href="#!" class="text-white"
+                    ><i class="fab fa-twitter fa-lg mx-4 px-2"></i
+                  ></a>
+                  <a href="#!" class="text-white"
+                    ><i class="fab fa-google fa-lg"></i
+                  ></a>
+                </div>
+              </div>
+
+              <div>
+                <p class="mb-0">
+                  Pas encore de compte ?
+                  <router-link class="link-signup" to="/signup"
+                    >Enregistrez-vous</router-link
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
-
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      e: true,
+    };
+  },
+  mounted() {},
+  methods: {
+    changer() {
+      if (this.e == true) {
+        document.getElementById("typePasswordX").setAttribute("type", "text");
+        document
+          .getElementById("eye")
+          .setAttribute("class", "bi bi-eye-slash-fill");
+        this.e = false;
+      } else {
+        document
+          .getElementById("typePasswordX")
+          .setAttribute("type", "password");
+        document.getElementById("eye").setAttribute("class", "bi bi-eye-fill");
+        this.e = true;
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;800&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  font-family: Poppins;
-  transition: 0.6s;
+.container{
+  margin-top: 50px;  
 }
-body {
-  width: 100vw;
-  height: 100vh;
-  /* background: #453F66; */
+.gradient-custom {
   background: #d1d0e1;
-  overflow-x: hidden;
 }
-main {
-  margin: 100px 0 0;
-  width: 100%;
-  height: calc(100% - 100px);
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  top: 350px;
+.password-icon{
+  width:50px;
+  margin: auto;
 }
-main .temp {
-  padding: 10px;
-  width: calc(28vw + 100px);
-  height: calc(28vw + 100px);
-  /* border: 1px solid #453F66; */
-  box-shadow: 0 0 100px #453f66;
-  border-radius: 12px;
-  font-size: 2em;
-  font-weight: 800;
-  text-shadow: 0 0 4px #fff, 0 0 12px #fff;
-  display: flex;
-  position: fixed;
-  top: 150px;
-  flex-direction: column;
-  filter: grayscale(100%);
+.password-icon:hover {
+  cursor: pointer;
+  color: #ff4754;
+  transform: scale(1.5);
 }
-main .temp:hover {
-  box-shadow: 0 0 20px #000, 0 0 60px #453f66;
-  transform: scale(1.03);
-  filter: contrast(110%);
-}
-
-input::placeholder {
-  color: #0006;
-  transition: 0.2s;
-}
-input:focus::placeholder {
-  opacity: 0;
-}
-input:focus {
-  outline: none;
-  transform: scale(1.03);
+label {
+  background: #212529;
 }
 input {
-  margin: 12px;
-  background: transparent;
-  box-shadow: 4px 4px 8px #453f66, -2px -2px 4px #453f6688;
-  border: none;
-  border-radius: 6px;
-  color: #000;
-  font-size: 0.6em;
-  caret-color: #090940;
+  outline: 1px white solid;
 }
-
-#login input[type="submit"] {
-  width: 25%;
-  margin: 0 auto;
-  margin-top: 10%;
+input:focus {
+  background: transparent;
+  outline: 1px white solid;  
+}
+.password-icon {
+  margin-top: 25px;
 }
 </style>
